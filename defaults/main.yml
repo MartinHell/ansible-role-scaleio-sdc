@@ -4,9 +4,9 @@
 scaleio_sdc_package_location: ''
 
 # Information used to get the correct version
-scaleio_sdc_arch: {{ ansible_architecture }}
-scaleio_sdc_distro: {{ ansible_distribution }}
-scaleio_sdc_distro_version: {{ ansible_distribution_version }}
+scaleio_sdc_arch: '{{ ansible_architecture }}'
+scaleio_sdc_distro: '{{ ansible_distribution }}'
+scaleio_sdc_distro_version: '{{ ansible_distribution_version }}'
 # Should be the version found in the deb package name: e.g. 2.5-0.254
 scaleio_sdc_version: ''
 
