@@ -3,5 +3,16 @@
 # Set the full path to the debian package on the Ansible master
 scaleio_sdc_package_location: ''
 
-# scaleio_sdc_mdm_servers
-scelio_sdc_package_location: ['server1', 'server2']
+# Information used to get the correct version
+scaleio_sdc_arch: {{ ansible_architecture }}
+scaleio_sdc_distro: {{ ansible_distribution }}
+scaleio_sdc_distro_version: {{ ansible_distribution_version }}
+# Should be the version found in the deb package name: e.g. 2.5-0.254
+scaleio_sdc_version: ''
+
+scaleio_sdc_source_file_path: '{{ scaleio_sdc_package_location }}/EMC-ScaleIO-sdc-{{ scaleio_sdc_version }}.{{ scaleio_sdc_distro }}.{{ scaleio_sdc_distro_version }}.{{ scaleio_sdc_arch }}.deb'
+
+# IP adresses of the MDM servers
+scaleio_sdc_mdm_servers: 
+  - server1
+  - server2

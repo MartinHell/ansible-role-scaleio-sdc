@@ -8,12 +8,12 @@
 
 - name: copy sdc debian package
   file:
-    src: '{{ scaleio_sdc_package_location }}'
-    dest: '/tmp/{{ scaleio_sdc_package_location | basename }}'
+    src: '{{ scaleio_sdc_source_file_path }}'
+    dest: '/tmp/{{ scaleio_sdc_source_file_path | basename }}'
     owner: root
     group: root
 
 - name: install deb package
   apt:
     environment: "MDM_IP={{ scaleio_sdc_mdm_servers | join(',') }}"
-    deb: '/tmp/{{ scaleio_sdc_package_location }}'
+    deb: '/tmp/{{ scaleio_sdc_source_file_path | basename }}'
