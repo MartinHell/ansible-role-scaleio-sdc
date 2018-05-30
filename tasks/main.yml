@@ -1,0 +1,19 @@
+---
+
+- name: install linux headers
+  apt:
+    name: 'linux-headers-{{ ansible_kernel }}'
+    update_cache: yes
+    state: present
+
+- name: copy sdc debian package
+  file:
+    src: '{{ scaleio_sdc_package_location }}'
+    dest: '/tmp/{{ scaleio_sdc_package_location | basename }}'
+    owner: root
+    group: root
+
+- name: install deb package
+  apt:
+    environment: "MDM_IP={{ scaleio_sdc_mdm_servers | join(',') }}"
+    deb: '/tmp/{{ scaleio_sdc_package_location }}'

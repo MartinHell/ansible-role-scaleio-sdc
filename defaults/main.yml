@@ -1,0 +1,7 @@
+---
+
+# Set the full path to the debian package on the Ansible master
+scaleio_sdc_package_location: ''
+
+# scaleio_sdc_mdm_servers
+scelio_sdc_package_location: ['server1', 'server2']
